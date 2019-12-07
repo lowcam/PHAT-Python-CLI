@@ -1,66 +1,27 @@
-Project Title
+#-------------------------------------------------------------------------------
+# PHAT  - Password Hashing Algorithm Tool
+# CLI Python Version
+# v 0.1
+#
+# The purpose of this tool is to let an individual enter text and have a hashed
+# output to use as the password to the site or program. Initially the program
+# will hash the input in SHA 256 and output in hexadecimal. THe plans for this
+# program are to allow the selection of three different SHA lengths (256, 384,
+# and 512). Also, the output numbering system will be selectable between
+# hexadecimal, base64, and base58. Also, the number of digits in the ouput
+# will be selectable in case a site can only have a certain number of digits
+# in a password. THe last step will be for the output to be copied to the
+# clipboard so if can be pasted into the program or site.
+#
+# (C) 2019 Lorne Cammack, USA
+# Released under GNU Public License (GPL)
+# email lowcam.socailvideo@gmail.com
+#-------------------------------------------------------------------------------
 
-One Paragraph of project description goes here
-Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-Prerequisites
-
-What things you need to install the software and how to install them
-
-Give examples
-
-Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-Give the example
-
-And repeat
-
-until finished
-
-End with an example of getting some data out of the system or using it for a little demo
-Running the tests
-
-Explain how to run the automated tests for this system
-Break down into end to end tests
-
-Explain what these tests test and why
-
-Give an example
-
-And coding style tests
-
-Explain what these tests test and why
-
-Give an example
-
-Deployment
-
-Add additional notes about how to deploy this on a live system
-Built With
-
-    Dropwizard - The web framework used
-    Maven - Dependency Management
-    ROME - Used to generate RSS Feeds
-
-Contributing
-
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-Versioning
-
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-Authors
-
-    Billie Thompson - Initial work - PurpleBooth
-
-See also the list of contributors who participated in this project.
 License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
+
 Acknowledgments
 
     Hat tip to anyone whose code was used
