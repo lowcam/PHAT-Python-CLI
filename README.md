@@ -1,4 +1,4 @@
-#-------------------------------------------------------------------------------
+
 # PHAT  - Password Hashing Algorithm Tool
 # CLI Python Version
 # v 0.1
@@ -16,7 +16,7 @@
 # (C) 2019 Lorne Cammack, USA
 # Released under GNU Public License (GPL)
 # email lowcam.socailvideo@gmail.com
-#-------------------------------------------------------------------------------
+
 
 License
 
