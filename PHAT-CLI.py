@@ -13,6 +13,11 @@
 # in a password. THe last step will be for the output to be copied to the
 # clipboard so if can be pasted into the program or site.
 #
+# Required to use:
+# Python3
+# Python-tk
+# Use pip3 to install base58
+#
 # (C) 2019 Lorne Cammack, USA
 # Released under GNU Public License (GPL)
 # email lowcam.socailvideo@gmail.com
@@ -22,11 +27,37 @@
 import codecs
 import hashlib
 
+#This section has the user choose between 3 SHA lengths: 256, 384, and 512
+i = 1
+while (i == 1):
+    shainput = input ('What SHA value would you like? (256, 384, or 512)')
+    valuesha = int(shainput)
+    if valuesha == 256:
+        i = 2
+    elif valuesha == 384:
+        i = 2
+    elif valuesha == 512:
+        i = 2
+    else:
+        print ("Incorrect value entered. Please try again.")
+        i=1
+
 # Input from user.
 inputText = input ('Enter value: ')
 # Take the input text and convert it into byte format.
 hashText = bytes(inputText, "ascii")
-# Output the hashed output. Hexdigest puts it into hex number system.
-print ('SHA 256 sum: ', hashlib.sha256 (hashText).hexdigest())
-# Wait for the user to press a key before exiting.
+
+# This next section hashes the hashText into the correct SHA type as selected
+# above
+outputText = 0
+if valuesha == 256:
+    outputText = hashlib.sha256 (hashText).hexdigest()
+    print ("SHA 256 sum: ", outputText)
+elif valuesha == 384:
+    outputText = hashlib.sha384 (hashText).hexdigest()
+    print ("SHA 384 sum: ", outputText)
+else:
+    outputText = hashlib.sha512 (hashText).hexdigest()
+    print ("SHA 512 sum: ", outputText)
+
 exitText = input ('Press a key to continue')
