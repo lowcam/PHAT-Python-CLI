@@ -13,6 +13,11 @@ will be selectable in case a site can only have a certain number of digits
 in a password. THe last step will be for the output to be copied to the
 clipboard so if can be pasted into the program or site.
 
+Required to use:
+Python3
+Python3-tk
+Use pip to install base58
+
 (C) 2019 Lorne Cammack, USA
 Released under GNU Public License (GPL)
 email lowcam.socailvideo@gmail.com
