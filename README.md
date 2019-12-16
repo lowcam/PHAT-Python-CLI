@@ -26,9 +26,3 @@ email lowcam.socailvideo@gmail.com
 License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE v 3 - see the LICENSE file for details
-
-Acknowledgments
-
-    Hat tip to anyone whose code was used
-    Inspiration
-    etc
