@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 # PHAT  - Password Hashing Algorithm Tool
 # CLI Python Version
-# v 0.5
+# v 1.0
 #
 # The purpose of this tool is to let an individual enter text and have a hashed
 # output to use as the password to the site or program. Initially the program
@@ -134,6 +134,17 @@ def outputPrint(hexhashvalue):
         printreturn = hexhashvalue
     elif valuenumsys == 2:
         printreturn = codecs.encode(codecs.decode(hexhashvalue, 'hex'), 'base64').decode()
+# The base64 return was putting a line return at the 76 character mark, which
+# when copying into a password did not help. This code rectifies that. Also
+# had to add the rstrip() so that a new line wouldn't be added after
+# concatenating the two parts.
+        printreturnLen = len(printreturn)
+        if printreturnLen > 76:
+            printreturnSide1 = printreturn[:76]
+            printreturnEndCalc = printreturnLen - 77
+            printreturnSide2 = printreturn[-printreturnEndCalc:]
+            printreturn = printreturnSide1 + printreturnSide2
+            printreturn = printreturn.rstrip()
     else:
         printreturn = base58.b58encode(codecs.decode(hexhashvalue, 'hex'))
 
