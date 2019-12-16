@@ -14,9 +14,9 @@ in a password. THe last step will be for the output to be copied to the
 clipboard so if can be pasted into the program or site.
 
 Required to use:
-Python3
-Python3-tk
-Use pip to install base58
+Python3; 
+Python3-tk; 
+Use pip to install base58;
 
 (C) 2019 Lorne Cammack, USA
 Released under GNU Public License (GPL)
