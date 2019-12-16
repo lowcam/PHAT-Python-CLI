@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 # PHAT  - Password Hashing Algorithm Tool
 # CLI Python Version
-# v 0.4
+# v 0.5
 #
 # The purpose of this tool is to let an individual enter text and have a hashed
 # output to use as the password to the site or program. Initially the program
@@ -19,21 +19,42 @@
 # Use pip3 to install base58
 #
 # (C) 2019 Lorne Cammack, USA
-# Released under GNU Public License (GPL) v3
 # email lowcam.socailvideo@gmail.com
+# Released under GNU Public License (GPL) v3
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #-------------------------------------------------------------------------------
 
 
 import codecs
 import hashlib
 import base58
+from tkinter import Tk
 
+#Print license at the beginning of the file
+def printLicense():
+    print ("")
+    print ("PHAT Copyright (C) 2019 Lorne Cammack")
+    print ("This program comes with ABSOLUTELY NO WARRANTY;")
+    print ("This is free software, and you are welcome to redistribute it")
+    print ("under certain conditions. See https://www.gnu.org/licenses/ for more details.")
+    print ("")
 
 # This section has the user choose between 3 SHA lengths: 256, 384, and 512
 def selectSHA():
     i = 1
     while (i == 1):
-        shainput = input ('What SHA value would you like? (256, 384, or 512)')
+        shainput = input ('What SHA value would you like? (256, 384, or 512) ')
         global valuesha
         try:
             testVal = int(shainput)
@@ -120,6 +141,8 @@ def outputPrint(hexhashvalue):
 def finalprint (hexhashvalue):
 
     lenhash = len(hexhashvalue)
+    global copyreturn
+    copyreturn = printreturn
     if finaldig == 0 or finaldig >= lenhash:
         if valuenumsys == 1:
             #printreturn = hexhashvalue
@@ -138,15 +161,19 @@ def finalprint (hexhashvalue):
             #printreturn = hexhashvalue
             print ("SHA", valuesha, "sum in hex: ")
             print (printreturn[:finaldig])
+            copyreturn = printreturn[:finaldig]
         elif valuenumsys == 2:
             #printreturn = codecs.encode(codecs.decode(hexhashvalue, 'hex'), 'base64').decode()
             print ("SHA", valuesha, "sum in base64: ")
             print (printreturn[:finaldig])
+            copyreturn = printreturn[:finaldig]
         else:
             #printreturn = base58.b58encode(codecs.decode(hexhashvalue, 'hex'))
             print ("SHA", valuesha, "sum in base58: ")
             print (printreturn[:finaldig])
+            copyreturn = printreturn[:finaldig]
 
+printLicense()
 selectSHA()
 OutputNumberSystem()
 numdigfinal()
@@ -168,4 +195,12 @@ else:
 outputPrint(outputText)
 finalprint(outputText)
 
-exitText = input ('Press a key to continue')
+# code to copy output to clipboard_clear
+r = Tk()
+r.withdraw()
+r.clipboard_clear()
+r.clipboard_append(copyreturn)
+r.update()
+r.destroy()
+
+exitText = input ('Hash Copied to Clipboard. Paste before pressing a key to continue')
