@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 # PHAT  - Password Hashing Algorithm Tool
 # CLI Python Version
-# v 0.3
+# v 0.4
 #
 # The purpose of this tool is to let an individual enter text and have a hashed
 # output to use as the password to the site or program. Initially the program
@@ -19,7 +19,7 @@
 # Use pip3 to install base58
 #
 # (C) 2019 Lorne Cammack, USA
-# Released under GNU Public License (GPL)
+# Released under GNU Public License (GPL) v3
 # email lowcam.socailvideo@gmail.com
 #-------------------------------------------------------------------------------
 
@@ -76,22 +76,80 @@ def OutputNumberSystem():
                 print ("Incorrect value entered. Please try again.")
                 i=1
 
+# This section lets a user decide how many digits they want in the final output
+def numdigfinal():
+    i = 1
+    while (i == 1):
+        global finaldig
+        digfinalyn = input ('Would you like to restrict the number of digits in the output? (Y/N) ')
+        if digfinalyn == 'Y' or digfinalyn == 'y':
+            digfinal = input ('How many digits would you like? (1-128) ')
+            try:
+                val = int(digfinal)
+            except:
+                print("Incorrect value entered. Please try again.")
+                i=1
+            else:
+                finaldig = int(digfinal)
+                if finaldig < 1 or finaldig > 128:
+                    print ("This value is not acceptable")
+                    i=1
+                else:
+                    i=2
+        elif digfinalyn == 'N' or digfinalyn == 'n':
+            finaldig = 0
+            i=2
+        else:
+            print ("That is an incorrect selection.")
+            i = 1
+
 # This section gets the values ready to print. For Base64 and Base58 it
 # decodes the output from Hex, which it is in when it is sent, and then
 # reencodes it into the numbering system choosen in OutputNumberSystem().
 def outputPrint(hexhashvalue):
-    i=0
+    global printreturn
+    printreturn=0
     if valuenumsys == 1:
-        print ("SHA", valuesha, "sum in hex: ", hexhashvalue)
+        printreturn = hexhashvalue
     elif valuenumsys == 2:
-        i = codecs.encode(codecs.decode(hexhashvalue, 'hex'), 'base64').decode()
-        print ("SHA", valuesha, "sum in base64: ", i)
+        printreturn = codecs.encode(codecs.decode(hexhashvalue, 'hex'), 'base64').decode()
     else:
-        i = base58.b58encode(codecs.decode(hexhashvalue, 'hex'))
-        print ("SHA", valuesha, "sum in base58: ", i)
+        printreturn = base58.b58encode(codecs.decode(hexhashvalue, 'hex'))
+
+# This section gets everything ready for the output
+def finalprint (hexhashvalue):
+
+    lenhash = len(hexhashvalue)
+    if finaldig == 0 or finaldig >= lenhash:
+        if valuenumsys == 1:
+            #printreturn = hexhashvalue
+            print ("SHA", valuesha, "sum in hex: ")
+            print (printreturn)
+        elif valuenumsys == 2:
+            #printreturn = codecs.encode(codecs.decode(hexhashvalue, 'hex'), 'base64').decode()
+            print ("SHA", valuesha, "sum in base64: ")
+            print (printreturn)
+        else:
+            #printreturn = base58.b58encode(codecs.decode(hexhashvalue, 'hex'))
+            print ("SHA", valuesha, "sum in base58: ")
+            print (printreturn)
+    else:
+        if valuenumsys == 1:
+            #printreturn = hexhashvalue
+            print ("SHA", valuesha, "sum in hex: ")
+            print (printreturn[:finaldig])
+        elif valuenumsys == 2:
+            #printreturn = codecs.encode(codecs.decode(hexhashvalue, 'hex'), 'base64').decode()
+            print ("SHA", valuesha, "sum in base64: ")
+            print (printreturn[:finaldig])
+        else:
+            #printreturn = base58.b58encode(codecs.decode(hexhashvalue, 'hex'))
+            print ("SHA", valuesha, "sum in base58: ")
+            print (printreturn[:finaldig])
 
 selectSHA()
 OutputNumberSystem()
+numdigfinal()
 # Input from user.
 inputText = input ('Enter value: ')
 # Take the input text and convert it into byte format.
@@ -108,5 +166,6 @@ else:
     outputText = hashlib.sha512 (hashText).hexdigest()
 
 outputPrint(outputText)
+finalprint(outputText)
 
 exitText = input ('Press a key to continue')
