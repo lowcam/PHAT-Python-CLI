@@ -18,7 +18,7 @@
 # Python3-tk
 # Use pip3 to install base58
 #
-# (C) 2019 Lorne Cammack, USA
+# (C) 2020 Lorne Cammack, USA
 # email lowcam.socailvideo@gmail.com
 # Released under GNU Public License (GPL) v3
 #    This program is free software: you can redistribute it and/or modify
@@ -44,7 +44,7 @@ from tkinter import Tk
 #Print license at the beginning of the file
 def printLicense():
     print ("")
-    print ("PHAT Copyright (C) 2019 Lorne Cammack")
+    print ("PHAT Copyright (C) 2020 Lorne Cammack")
     print ("This program comes with ABSOLUTELY NO WARRANTY;")
     print ("This is free software, and you are welcome to redistribute it")
     print ("under certain conditions. See https://www.gnu.org/licenses/ for more details.")
