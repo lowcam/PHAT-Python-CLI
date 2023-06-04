@@ -18,7 +18,7 @@ Python3;
 Python3-tk; 
 Use pip to install base58;
 
-(C) 2020 Lorne Cammack, USA
+(C) 2023 Lorne Cammack, USA
 Released under GNU Public License (GPL)
 email lowcam.socailvideo@gmail.com
 
