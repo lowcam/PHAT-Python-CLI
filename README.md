@@ -14,11 +14,12 @@ in a password. The last step will be for the output to be copied to the
 clipboard so if can be pasted into the program or site.
 
 Required to use:
-Python3; 
-Python3-tk; 
+python3; 
+python3-pip;
+python3-tk; 
 Use pip to install base58;
 
-(C) 2023 Lorne Cammack, USA
+(C) 2024 Lorne Cammack, USA
 Released under GNU Public License (GPL)
 email lowcam.socailvideo@gmail.com
 
