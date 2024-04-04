@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 # PHAT  - Password Hashing Algorithm Tool
 # CLI Python Version
-# v 1.1
+# v 1.2
 #
 # The purpose of this tool is to let an individual enter text and have a hashed
 # output to use as the password to the site or program. Initially the program
@@ -14,11 +14,12 @@
 # clipboard so if can be pasted into the program or site.
 #
 # Required to use:
-# Python3
-# Python3-tk
+# python3
+# python3-pip
+# python3-tk
 # Use pip3 to install base58
 #
-# (C) 2023 Lorne Cammack, USA
+# (C) 2024 Lorne Cammack, USA
 # email lowcam.socailvideo@gmail.com
 # Released under GNU Public License (GPL) v3
 #    This program is free software: you can redistribute it and/or modify
@@ -44,7 +45,7 @@ from tkinter import Tk
 #Print license at the beginning of the file
 def printLicense():
     print ("")
-    print ("PHAT Copyright (C) 2020 Lorne Cammack")
+    print ("PHAT Copyright (C) 2024 Lorne Cammack")
     print ("This program comes with ABSOLUTELY NO WARRANTY;")
     print ("This is free software, and you are welcome to redistribute it")
     print ("under certain conditions. See https://www.gnu.org/licenses/ for more details.")

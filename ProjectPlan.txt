@@ -1,1 +1,8 @@
 This is the project plan for the Password Hash Calc in Python CLI.
+- See about upgrading SHA calculations to SHA3.
+-- Need to research if SHA3 has beem implemented in python3. 
+-- https://docs.python.org/3/library/hashlib.html
+-- According to the above documentation it is available and I can use it as I use hashlib
+--- Probably need to think about having it as an option, do you want to use
+--- sha2 or sha3? That way if any pw are using sha2 can still get those hashes to match.
+--- sha3 will produce a totally different hash from sha2.
